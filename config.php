@@ -1,9 +1,6 @@
 <?php
 
 /**
- * DB関連設定
+ * 定数設定
  */
-define('DB_HOST', 'localhost');
-define('DB_NAME', 'mini_FW');
-define('DB_USER', 'root');
-define('DB_PASSWORD', '');
+define('TEST', 'testtest');

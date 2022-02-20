@@ -1,6 +1,9 @@
 <?php
 require './vendor/autoload.php';
 
+// .envを使用する
+Dotenv\Dotenv::createImmutable(__DIR__)->load();
+
 class DB
 {
 
@@ -39,13 +42,13 @@ class DB
 		];
 
 		$dsn = sprintf('mysql:host=%s;dbname=%s;charset=utf8'
-			, constant('DB_HOST')
-			, constant('DB_NAME')
+			, $_ENV['DB_HOST']
+			, $_ENV['DB_NAME']
 		);
 
 		$this->pdo = new PDO($dsn
-			, constant('DB_USER')
-			, constant('DB_PASSWORD')
+			, $_ENV['DB_USER']
+			, $_ENV['DB_PASSWORD']
 			, $options
 		);
 	}
