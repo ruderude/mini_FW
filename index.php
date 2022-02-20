@@ -5,10 +5,10 @@ require 'common.php';
 $db = DB::getInstance();
 
 // $name = filter_input(INPUT_POST, 'name');
-$name = 'チャッピー';
-$sql = 'SELECT * FROM users WHERE name = :name';
+$type = '1';
+$sql = 'SELECT * FROM users WHERE type = :type';
 $params = [
-	':name' => $name
+	':type' => $type
 ];
 $rows = $db->select($sql, $params, 0, 10);
 ?>
@@ -25,6 +25,7 @@ $rows = $db->select($sql, $params, 0, 10);
 					<?php foreach ($rows as $row) : ?>
 						<tr>
 							<td><?= h($row['id']); ?></td>
+							<td><?= h($row['name']); ?></td>
 						</tr>
 					<?php endforeach; ?>
 				</table>
